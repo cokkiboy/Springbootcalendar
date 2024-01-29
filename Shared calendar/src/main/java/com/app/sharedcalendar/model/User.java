@@ -1,10 +1,8 @@
 package com.app.sharedcalendar.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.annotation.Nullable;
+import jakarta.persistence.*;
 import lombok.*;
 
 
@@ -14,6 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(name = "user")
 public class User {
 
 
@@ -21,9 +20,9 @@ public class User {
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       private Long id;
 
-
-
+      @Column(nullable =false,length=100,unique = true )
       private  String email;
+
 
       private String name;
 
