@@ -19,7 +19,7 @@ public class Friendship {
     private  Long id;
     private  String userId;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY ,cascade = CascadeType.ALL )
     private List<User> friendList;
 
     public void addFriend(User user) {

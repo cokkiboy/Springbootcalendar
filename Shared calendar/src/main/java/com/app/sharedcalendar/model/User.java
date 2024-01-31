@@ -1,7 +1,6 @@
 package com.app.sharedcalendar.model;
 
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 
