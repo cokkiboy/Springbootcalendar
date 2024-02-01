@@ -11,7 +11,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "user")
 public class User {
 
 
@@ -20,7 +19,7 @@ public class User {
       private Long id;
 
       @Column(nullable =false,length=100,unique = true )
-      private String name;
+      private String  username;  //변수이름 똑바로짓자 이거떄문에 오류뜸
 
 
 
