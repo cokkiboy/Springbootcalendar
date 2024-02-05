@@ -7,6 +7,7 @@ import com.app.sharedcalendar.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +22,7 @@ public class UserService {
 
 
     @Transactional
-    public void  join(User user){
+    public void  join(@NotNull User user){
       String rawPassword =user.getPassword();  //비밀번호를 입력한거
       String encPassword =bCryptPasswordEncoder.encode(rawPassword); //해쉬처리해준다
       user.setPassword(encPassword);
