@@ -1,9 +1,11 @@
 package com.app.sharedcalendar.model;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 @Entity
 @Data
@@ -19,7 +21,9 @@ public class Friend {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Nullable
     private String fromNickname;
+    @Nullable
     private String toNickname;
 
 

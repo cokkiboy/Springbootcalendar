@@ -30,5 +30,16 @@ public class UserService {
   userRepository.save(user);
     }   //회원가입 구성완료
 
-    
+    @Transactional
+    public void Edit_member_information(User user){
+         User persistance = userRepository.findById(user.getId())
+                 .orElseThrow(()->{
+                     return new IllegalArgumentException("회원 찾기실패");
+                 });
+
+
+
+    }
+
+
 }

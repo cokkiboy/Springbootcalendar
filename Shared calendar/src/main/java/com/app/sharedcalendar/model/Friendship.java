@@ -1,6 +1,7 @@
 package com.app.sharedcalendar.model;
 
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,9 +20,13 @@ public class Friendship {
     private  Long id;
     private  String userId;
 
+
+
+    @Nullable
     @OneToMany(fetch = FetchType.LAZY ,cascade = CascadeType.ALL )
     private List<User> friendList;
 
+    @Nullable
     public void addFriend(User user) {
         this.friendList.add(user);
     }
