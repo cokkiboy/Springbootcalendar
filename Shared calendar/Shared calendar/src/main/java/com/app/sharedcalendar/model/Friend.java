@@ -2,35 +2,39 @@ package com.app.sharedcalendar.model;
 
 
 
-import jakarta.annotation.Nullable;
+
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Friend {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch =FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Nullable
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "friendship_id")
+    private Friendship friendship;
+
     private String fromNickname;
-    @Nullable
+
     private String toNickname;
 
-
-    @ManyToOne
-    @JoinColumn(name = "friend_id")
-    private User friend;
-
+    public Friend(User user, Friendship friendship, String fromNickname, String toNickname) {
+        this.user = user;
+        this.friendship = friendship;
+        this.fromNickname = fromNickname;
+        this.toNickname = toNickname;
+    }
 }

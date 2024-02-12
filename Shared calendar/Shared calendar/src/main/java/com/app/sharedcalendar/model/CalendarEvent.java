@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -35,4 +36,5 @@ public class CalendarEvent {
     @JoinColumn(name = "user_id")
     private  User user;
 
+    /*private List<User> sharedWithFriends;*/
 }

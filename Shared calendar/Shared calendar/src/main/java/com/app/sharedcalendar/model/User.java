@@ -7,6 +7,8 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -41,4 +43,18 @@ public class User {
 
     @CreationTimestamp
     private Timestamp createDate;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Friend> friends = new ArrayList<>();
+
+    public void addFriend(Friend friend) {
+        friends.add(friend);
+        friend.setUser(this);
+    }
+
+    public void removeFriend(Friend friend) {
+        friends.remove(friend);
+        friend.setUser(null);
+    }
+
 }
