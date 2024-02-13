@@ -24,16 +24,16 @@ public class Friend {
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "friendship_id")
-    private Friendship friendship;
+    @JoinColumn(name = "friend_id")
+    private User friend;
 
     private String fromNickname;
 
     private String toNickname;
 
-    public Friend(User user, Friendship friendship, String fromNickname, String toNickname) {
+    public Friend(User user, User friend, String fromNickname, String toNickname) {
         this.user = user;
-        this.friendship = friendship;
+        this.friend = friend;
         this.fromNickname = fromNickname;
         this.toNickname = toNickname;
     }

@@ -26,8 +26,7 @@ public class CalendarEvent {
     @Lob
     private  String title;
 
-
-
+    
     private LocalDateTime start;
 
     private  LocalDateTime end;

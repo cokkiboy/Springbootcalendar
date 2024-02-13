@@ -20,21 +20,11 @@ public class Friendship {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @OneToMany(mappedBy = "friendship", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Friend> friends = new ArrayList<>();
 
-    public void addFriend(User user, String fromNickname, String toNickname) {
-        Friend friend = new Friend(user, this, fromNickname, toNickname);
-        friends.add(friend);
-        user.getFriends().add(friend);
-    }
 
-    public void removeFriend(Friend friend) {
-        friends.remove(friend);
-        friend.getUser().getFriends().remove(friend);
-        friend.setUser(null);
-        friend.setFriendship(null);
-    }
+
 }
