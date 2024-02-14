@@ -44,17 +44,11 @@ public class User {
     @CreationTimestamp
     private Timestamp createDate;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Friend> friends = new ArrayList<>();
+    //팔로우
+    @OneToMany(mappedBy = "from_user", fetch = FetchType.LAZY)
+    private List<Follow> followings;
 
-    public void addFriend(Friend friend) {
-        friends.add(friend);
-        friend.setUser(this);
-    }
-
-    public void removeFriend(Friend friend) {
-        friends.remove(friend);
-        friend.setUser(null);
-    }
+    @OneToMany(mappedBy = "to_user", fetch = FetchType.LAZY)
+    private List<Follow> followers;
 
 }
