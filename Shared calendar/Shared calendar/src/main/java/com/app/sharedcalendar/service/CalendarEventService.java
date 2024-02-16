@@ -14,7 +14,7 @@ public class CalendarEventService {
 
     private final CalendarEventRepository eventRepository;
 
-    // 일정을 저장합니다.
+
     // 일정을 저장합니다.
     public void saveEvent(CalendarEvent event) {
         // 저장된 일정을 조회합니다.
