@@ -15,5 +15,5 @@ public interface FollowRepository extends JpaRepository<Follow,Long> {
     List<Follow> findByToUser(User to_user);
     void deleteFollowByFromUser(User from_user);
     @Query("select f from Follow f where f.fromUser = :from and f.toUser = :to")
-    Optional<Follow> findFollow(@Param("from") User from_user, @Param("to") User to_user);
+     Optional<Follow> findFollow(@Param("from") User from_user, @Param("to") User to_user);
 }

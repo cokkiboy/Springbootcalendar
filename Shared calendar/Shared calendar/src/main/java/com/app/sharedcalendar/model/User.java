@@ -1,6 +1,7 @@
 package com.app.sharedcalendar.model;
 
 
+import com.app.sharedcalendar.dto.FollowDTO;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
@@ -51,4 +52,10 @@ public class User {
     @OneToMany(mappedBy = "to_user", fetch = FetchType.LAZY)
     private List<Follow> followers;
 
+
+ public FollowDTO tofollow(String status) {
+     return FollowDTO.builder()
+             .status(status)
+             .build();
+ }
 }

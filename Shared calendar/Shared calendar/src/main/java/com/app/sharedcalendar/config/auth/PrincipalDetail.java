@@ -23,15 +23,10 @@ public class PrincipalDetail implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> collectors = new ArrayList<>();
-        collectors.add( new GrantedAuthority() {
-            @Override
-            public String getAuthority() {
-
-                return "ROLE_"+user.getRoletype();
-            }
-        });
+        collectors.add(() -> "ROLE_" + user.getRoletype());
         return collectors;
     }
+
 
     @Override
     public String getPassword() {
