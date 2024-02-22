@@ -5,6 +5,7 @@ import com.app.sharedcalendar.model.User;
 import com.app.sharedcalendar.service.FollowService;
 import com.app.sharedcalendar.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class FollowController {
      * 친구 추가
      */
     @PostMapping("/users/follow/{friendName}")
-    public ResponseEntity follow(Authentication authentication, @PathVariable("friendName") String friendName) {
+    public ResponseEntity follow(@NotNull Authentication authentication, @PathVariable("friendName") String friendName) {
         User from_user = userService.findUserByUsername(authentication.getName());
         User to_user = userService.findUserByUsername(friendName);
         followService.follow(from_user, to_user);

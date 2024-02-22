@@ -2,6 +2,10 @@ package com.app.sharedcalendar;
 
 
 import com.app.sharedcalendar.model.ErrorCode;
+import lombok.Getter;
+
+
+@Getter
 
 public class FollowException extends RuntimeException{
     private final ErrorCode errorCode;
@@ -11,7 +15,4 @@ public class FollowException extends RuntimeException{
         this.errorCode = errorCode;
     }
 
-    public ErrorCode getErrorCode() {
-        return errorCode;
-    }
 }

@@ -21,7 +21,7 @@ public class UserService {
 
 
     @Transactional
-    public void  join(@NotNull User user){
+    public void  join(@NotNull User user){  //회원가입
         String rawPassword =user.getPassword();  //비밀번호를 입력한거
         String encPassword =bCryptPasswordEncoder.encode(rawPassword); //해쉬처리해준다
         user.setPassword(encPassword);
