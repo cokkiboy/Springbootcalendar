@@ -1,6 +1,13 @@
 
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import About from './pages/About';
+import Home from './pages/Home';
+import User from './pages/User';
+import Login from './pages/Login';
+import Join from './pages/Join';
+
 
 function App() {
   const [hello, setHello] = useState('')
@@ -12,9 +19,16 @@ function App() {
   }, []);
 
   return (
-      <div>
-        백엔드에서 가져온 데이터입니다 : {hello}
-      </div>
+     <BrowserRouter>
+         <Routes>
+             <Route  path="/" element={<Home />}></Route>
+             <Route  path="/login" element={<Login/>}></Route>
+             <Route  path="/join" element={<Join/>}></Route>
+             <Route  path="/user" element={<User/>}></Route>
+             <Route  path="/about" element={<About/>}></Route>
+         </Routes>
+
+     </BrowserRouter>
   );
 }
 
