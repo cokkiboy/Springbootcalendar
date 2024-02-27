@@ -1,4 +1,4 @@
-package com.app.sharedcalendar;
+package com.app.sharedcalendar.exception;
 
 
 import com.app.sharedcalendar.model.ErrorCode;

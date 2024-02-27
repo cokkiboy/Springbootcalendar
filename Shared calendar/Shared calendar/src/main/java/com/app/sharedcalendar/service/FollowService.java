@@ -1,7 +1,8 @@
 package com.app.sharedcalendar.service;
 
-import com.app.sharedcalendar.FollowException;
+
 import com.app.sharedcalendar.dto.FollowDTO;
+import com.app.sharedcalendar.exception.FollowException;
 import com.app.sharedcalendar.model.ErrorCode;
 import com.app.sharedcalendar.model.Follow;
 import com.app.sharedcalendar.model.User;
