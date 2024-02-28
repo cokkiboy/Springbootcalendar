@@ -48,4 +48,11 @@ public class UserService {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
     }
+    @Transactional
+    public void delete(User user) {   //회원 탈퇴
+        User targetUser = userRepository.findById(user.getId())
+                .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다."));
+
+        userRepository.delete(targetUser);
+    }
 }

@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import User from './pages/User';
 import Login from './pages/Login';
 import Join from './pages/Join';
-import ErrorPage from './pages/ErrorPage'; // 사용자 정의 에러 페이지
+// 사용자 정의 에러 페이지
 import LoginConextProvider from './contexts/LoginContextProvider';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
     }, []);
 
     return (
-        <div className="App">
+        <div className="/">
             <BrowserRouter>
                 <LoginContextProvider>
                     <Routes>
