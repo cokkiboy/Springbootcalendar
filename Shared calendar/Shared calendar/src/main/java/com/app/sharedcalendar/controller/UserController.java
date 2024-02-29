@@ -6,6 +6,7 @@ import com.app.sharedcalendar.model.User;
 import com.app.sharedcalendar.service.UserService;
 import lombok.RequiredArgsConstructor;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -34,7 +35,7 @@ public class UserController {
     }
 
     @PutMapping("/user")   //회원수정
-    public ResponseDto<Integer> update(@RequestBody User user){
+    public ResponseDto<Integer> update(@RequestBody @NotNull User user){
 
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -43,7 +44,7 @@ public class UserController {
     }
 
     @DeleteMapping("/user")   //회원 탈퇴
-    public ResponseDto<Integer> delete(@RequestBody User user){
+    public ResponseDto<Integer> delete(@RequestBody @NotNull User user){
 
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);

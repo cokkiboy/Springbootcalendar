@@ -5,7 +5,6 @@ import LoginContextConsumer from '../contexts/LoginContextConsumer'
 
 const Home = () =>{
 
-
    return(
    <>
      <Header/>

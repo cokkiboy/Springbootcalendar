@@ -6,28 +6,21 @@ import Home from './pages/Home';
 import User from './pages/User';
 import Login from './pages/Login';
 import Join from './pages/Join';
-// 사용자 정의 에러 페이지
+
 import LoginConextProvider from './contexts/LoginContextProvider';
 
 function App() {
-    const [hello, setHello] = useState('');
-
-    useEffect(() => {
-        axios.get('/')
-            .then(response => setHello(response.data))
-            .catch(error => console.log(error))
-    }, []);
 
     return (
-        <div className="/">
+        <div >
             <BrowserRouter>
                 <LoginContextProvider>
                     <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/join" element={<Join />} />
-                        <Route path="/user" element={<User />} />
-                        <Route path="/about" element={<About />} />
+                        <Route path="/home" exact={true}  component={<Home />} />
+                        <Route path="/login" component={<Login />} />
+                        <Route path="/join" component={<Join />} />
+                        <Route path="/user" component={<User />} />
+                        <Route path="/about" component={<About />} />
 
                     </Routes>
                 </LoginContextProvider>
