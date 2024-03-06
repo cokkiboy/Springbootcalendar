@@ -11,15 +11,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-
 public class CalendarEventController {
 
 
-    private CalendarEventService calendarEventService;
+    private final CalendarEventService calendarEventService;
 
-    public CalendarEventController(CalendarEventService calendarEventService) {
-        this.calendarEventService = calendarEventService;
-    }
+
 
     @PostMapping("/save")
     public ResponseEntity<String> saveEvent(@RequestBody CalendarEvent event) {

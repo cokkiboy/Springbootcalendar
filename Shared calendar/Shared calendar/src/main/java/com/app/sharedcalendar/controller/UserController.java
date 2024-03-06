@@ -7,6 +7,7 @@ import com.app.sharedcalendar.service.UserService;
 import lombok.RequiredArgsConstructor;
 
 import org.jetbrains.annotations.NotNull;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -16,18 +17,26 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-
 public class UserController {
 
 
-   private  AuthenticationManager authenticationManager;
+   private    AuthenticationManager authenticationManager;
 
 
     private  final UserService userService;
 
+    @PostMapping("/auth/login")
+    public ResponseDto<Integer> login(@RequestBody User user) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        return new ResponseDto<>(HttpStatus.OK.value(), 1);
+    }
+
+
     @PostMapping("/auth/join")
     public ResponseDto<Integer> save(@RequestBody User user) {
-        System.out.println("UserApiController");
+
 
 
         userService.join(user);
